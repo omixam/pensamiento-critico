@@ -1,0 +1,10 @@
+# Archivos con copyright que conservo localmente para mi uso personal,
+# no para redistribución pública
+doc/falacias-logicas.md
+doc/falacias-logicas.pdf
+doc/SP-ConceptsandTools.md
+doc/SP-ConceptsandTools.pdf
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
