@@ -59,7 +59,7 @@ de referencia. Para que Claude Code la cargue:
 1. Clona el repo en el directorio de skills de Claude Code de tu usuario:
 
    ```bash
-   git clone https://github.com/<TU-USUARIO>/<NOMBRE-DEL-REPO>.git \
+   git clone https://github.com/omixam/pensamiento-critico.git \
      ~/.claude/skills/pensamiento-critico
    ```
 
@@ -71,9 +71,6 @@ de referencia. Para que Claude Code la cargue:
 3. Verifica que carga: en una conversación nueva, pega cualquier texto
    argumentativo corto y pide *"analízalo con pensamiento crítico"*. Si ves un
    reporte estructurado con los 8 elementos, está funcionando.
-
-> Si tu instalación de Claude Code lee skills desde otra ruta, ajústalo. La
-> documentación oficial de Claude Code tiene la ruta concreta para tu sistema.
 
 ## Cómo usarla
 
