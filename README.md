@@ -1,6 +1,6 @@
 # pensamiento-critico
 
-Skill para Claude Code que analiza textos argumentativos aplicando el marco de
+Skill para Claude que analiza textos argumentativos aplicando el marco de
 los **8 elementos del pensamiento** y los **estándares intelectuales universales**
 de Richard Paul y Linda Elder, junto con la **detección de falacias lógicas**
 y **sesgos cognitivos** relevantes.
@@ -10,7 +10,7 @@ por ti mismo.
 
 ## Para quién es
 
-Cualquier persona que use Claude Code y quiera leer con más rigor textos
+Cualquier persona que use Claude y quiera leer con más rigor textos
 argumentativos: artículos de opinión, ensayos, posts de redes, columnas,
 discursos, comunicados, ponencias. Funciona también con PDFs (los convierte a
 texto antes de analizar) y con imágenes (las transcribe primero).
@@ -54,7 +54,30 @@ ensayo largo.
 ## Instalación
 
 La skill se distribuye como un directorio con un archivo `SKILL.md` y carpetas
-de referencia. Para que Claude Code la cargue:
+de referencia. Funciona en las tres superficies donde Claude permite skills
+personalizadas, con un mecanismo de instalación distinto en cada una. Las
+skills **no se sincronizan entre superficies**: si quieres usarla en claude.ai
+y en Claude Code, hay que instalarla en cada una por separado.
+
+### En claude.ai (web, desktop, móvil)
+
+Disponible en planes **Pro, Max, Team y Enterprise**, con la ejecución de
+código activada. (No está disponible en Free.) Las skills personales son
+**individuales a cada usuario**: claude.ai no tiene distribución org-wide,
+así que cada miembro de un equipo tiene que subirla por separado en su cuenta.
+
+1. Descarga el repo como ZIP desde GitHub (botón *Code → Download ZIP*) o
+   clónalo y compáctalo tú. Importante: el ZIP debe contener la **carpeta
+   `pensamiento-critico/` en la raíz**, no los archivos sueltos.
+2. En claude.ai, ve a **Settings → Features → Skills**. Pulsa el botón para
+   añadir una skill nueva y sube el ZIP.
+3. Activa el toggle de la skill y asegúrate de que **Code execution** esté
+   habilitado en la misma sección de Features.
+4. Verifica que carga: en una conversación nueva, pega cualquier texto
+   argumentativo corto y pide *"analízalo con pensamiento crítico"*. Si ves un
+   reporte estructurado con los 8 elementos, está funcionando.
+
+### En Claude Code
 
 1. Clona el repo en el directorio de skills de Claude Code de tu usuario:
 
@@ -68,9 +91,15 @@ de referencia. Para que Claude Code la cargue:
 
 2. Reinicia Claude Code (o recarga las skills, según tu versión).
 
-3. Verifica que carga: en una conversación nueva, pega cualquier texto
-   argumentativo corto y pide *"analízalo con pensamiento crítico"*. Si ves un
-   reporte estructurado con los 8 elementos, está funcionando.
+3. Verifica que carga igual que en claude.ai: pega un texto argumentativo y
+   pide *"analízalo con pensamiento crítico"*.
+
+### En Claude API
+
+Las skills personalizadas también pueden usarse vía la Claude API subiéndolas
+al endpoint `/v1/skills`. Si vas a integrarla en una aplicación propia,
+consulta la [guía oficial de skills en la
+API](https://platform.claude.com/docs/en/build-with-claude/skills-guide).
 
 ## Cómo usarla
 
