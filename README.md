@@ -72,6 +72,14 @@ de referencia. Para que Claude Code la cargue:
    argumentativo corto y pide *"analízalo con pensamiento crítico"*. Si ves un
    reporte estructurado con los 8 elementos, está funcionando.
 
+### Uso como skill de proyecto (Claude Code en web/móvil)
+
+El repo incluye también `.claude/skills/pensamiento-critico/` con symlinks al
+`SKILL.md` y a las carpetas de referencia. Esto permite que, al abrir el repo
+directamente como directorio de trabajo en Claude Code (típicamente en la web
+o desde el móvil, donde no hay `~/.claude/skills/` propio), la skill se cargue
+automáticamente como skill de proyecto sin necesidad de instalarla aparte.
+
 ## Cómo usarla
 
 Tres formas habituales:
