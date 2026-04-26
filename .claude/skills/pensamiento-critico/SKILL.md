@@ -1,1 +1,1 @@
-../../../SKILL.md
+../../../skills/pensamiento-critico/SKILL.md
