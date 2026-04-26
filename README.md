@@ -59,6 +59,29 @@ personalizadas, con un mecanismo de instalación distinto en cada una. Las
 skills **no se sincronizan entre superficies**: si quieres usarla en claude.ai
 y en Claude Code, hay que instalarla en cada una por separado.
 
+### En Claude Code (recomendado: como plugin)
+
+Este repo está empaquetado como **plugin marketplace** de Claude Code. La
+forma más cómoda de instalar la skill es:
+
+```
+/plugin marketplace add omixam/pensamiento-critico
+/plugin install pensamiento-critico@omixam
+```
+
+Reinicia Claude Code (o recarga skills, según tu versión) y verifica: en una
+conversación nueva, pega un texto argumentativo y pide *"analízalo con
+pensamiento crítico"*.
+
+Si prefieres instalación manual sin pasar por el marketplace, clona el repo y
+copia solo la carpeta de la skill a tu directorio de skills:
+
+```bash
+git clone https://github.com/omixam/pensamiento-critico.git /tmp/omixam-pc
+mkdir -p ~/.claude/skills/
+cp -R /tmp/omixam-pc/skills/pensamiento-critico ~/.claude/skills/
+```
+
 ### En claude.ai (web, desktop, móvil)
 
 Disponible en planes **Pro, Max, Team y Enterprise**, con la ejecución de
@@ -66,40 +89,30 @@ código activada. (No está disponible en Free.) Las skills personales son
 **individuales a cada usuario**: claude.ai no tiene distribución org-wide,
 así que cada miembro de un equipo tiene que subirla por separado en su cuenta.
 
-1. Descarga el repo como ZIP desde GitHub (botón *Code → Download ZIP*) o
-   clónalo y compáctalo tú. Importante: el ZIP debe contener la **carpeta
-   `pensamiento-critico/` en la raíz**, no los archivos sueltos.
+1. Clona el repo y comprime **solo la carpeta de la skill** (no el repo
+   entero — claude.ai espera un ZIP cuya raíz sea la carpeta con el
+   `SKILL.md`):
+
+   ```bash
+   git clone https://github.com/omixam/pensamiento-critico.git
+   cd pensamiento-critico/skills
+   zip -r pensamiento-critico.zip pensamiento-critico
+   ```
+
 2. En claude.ai, ve a **Settings → Features → Skills**. Pulsa el botón para
-   añadir una skill nueva y sube el ZIP.
+   añadir una skill nueva y sube `pensamiento-critico.zip`.
 3. Activa el toggle de la skill y asegúrate de que **Code execution** esté
    habilitado en la misma sección de Features.
 4. Verifica que carga: en una conversación nueva, pega cualquier texto
    argumentativo corto y pide *"analízalo con pensamiento crítico"*. Si ves un
    reporte estructurado con los 8 elementos, está funcionando.
 
-### En Claude Code
-
-1. Clona el repo en el directorio de skills de Claude Code de tu usuario:
-
-   ```bash
-   git clone https://github.com/omixam/pensamiento-critico.git \
-     ~/.claude/skills/pensamiento-critico
-   ```
-
-   (Si la ruta `~/.claude/skills/` no existe en tu sistema, créala con
-   `mkdir -p ~/.claude/skills/`.)
-
-2. Reinicia Claude Code (o recarga las skills, según tu versión).
-
-3. Verifica que carga igual que en claude.ai: pega un texto argumentativo y
-   pide *"analízalo con pensamiento crítico"*.
-
 ### En Claude API
 
 Las skills personalizadas también pueden usarse vía la Claude API subiéndolas
-al endpoint `/v1/skills`. Si vas a integrarla en una aplicación propia,
-consulta la [guía oficial de skills en la
-API](https://platform.claude.com/docs/en/build-with-claude/skills-guide).
+al endpoint `/v1/skills` con el contenido de `skills/pensamiento-critico/`.
+Si vas a integrarla en una aplicación propia, consulta la [guía oficial de
+skills en la API](https://platform.claude.com/docs/en/build-with-claude/skills-guide).
 
 ### Uso como skill de proyecto (Claude Code en web/móvil)
 
@@ -142,7 +155,7 @@ Algunos prompts útiles:
   reporte, pero no lo elimina.
 - **El catálogo de falacias es curado, no exhaustivo.** Cubre las que más
   aparecen en debate público. Para casos difíciles, ver
-  [`doc/falacias-bibliografia.md`](doc/falacias-bibliografia.md).
+  [`skills/pensamiento-critico/doc/falacias-bibliografia.md`](skills/pensamiento-critico/doc/falacias-bibliografia.md).
 - **No verifica datos automáticamente.** Si el texto cita una fuente, la skill
   intenta leerla (vía WebFetch) y contrastar; si no puede, lo dice. No reemplaza
   un *fact-check* riguroso.
@@ -166,7 +179,7 @@ El marco teórico viene de:
 - **Charles Hamblin** — *Fallacies* (Methuen, 1970).
 
 Bibliografía completa con citas en
-[`doc/falacias-bibliografia.md`](doc/falacias-bibliografia.md).
+[`skills/pensamiento-critico/doc/falacias-bibliografia.md`](skills/pensamiento-critico/doc/falacias-bibliografia.md).
 
 ## Licencia
 
@@ -180,11 +193,11 @@ Issues y PRs bienvenidos. Lo más útil:
 
 - **Casos donde la skill falla**: textos en los que produce un análisis pobre,
   forzado o tendencioso. Pega el texto y describe qué esperabas. Esos casos son
-  oro para mejorar los catálogos de `references/`.
+  oro para mejorar los catálogos en `skills/pensamiento-critico/references/`.
 - **Falacias mal etiquetadas o ausentes** en
-  [`references/falacias-graves.md`](references/falacias-graves.md).
+  [`references/falacias-graves.md`](skills/pensamiento-critico/references/falacias-graves.md).
 - **Sesgos cognitivos** relevantes que falten en
-  [`references/sesgos-cognitivos.md`](references/sesgos-cognitivos.md).
+  [`references/sesgos-cognitivos.md`](skills/pensamiento-critico/references/sesgos-cognitivos.md).
 - **Mejoras al test de simetría ideológica** o a la sección de no-neutralidad,
   desde cualquier perspectiva política — el objetivo es que la skill sea más
   honesta sobre su no-neutralidad, no que sea menos.

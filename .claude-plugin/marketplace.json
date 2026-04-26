@@ -1,0 +1,28 @@
+{
+  "name": "omixam",
+  "owner": {
+    "name": "Maximo Gavete"
+  },
+  "metadata": {
+    "description": "Skills de Maximo Gavete (omixam)",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "pensamiento-critico",
+      "description": "Analiza textos argumentativos con el marco de los 8 elementos del pensamiento de Paul-Elder, los estandares intelectuales universales, y deteccion de falacias logicas y sesgos cognitivos.",
+      "source": "./",
+      "strict": false,
+      "skills": ["./skills/pensamiento-critico"],
+      "version": "1.0.0",
+      "author": {
+        "name": "Maximo Gavete"
+      },
+      "homepage": "https://github.com/omixam/pensamiento-critico",
+      "repository": "https://github.com/omixam/pensamiento-critico",
+      "license": "MIT",
+      "category": "writing",
+      "keywords": ["pensamiento-critico", "falacias", "paul-elder", "analisis-argumentativo", "spanish"]
+    }
+  ]
+}
