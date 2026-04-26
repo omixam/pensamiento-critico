@@ -133,10 +133,15 @@ así que cada miembro de un equipo tiene que subirla por separado en su cuenta.
 
    El ZIP queda en tu escritorio para que lo encuentres fácil al subirlo.
 
-2. En claude.ai, ve a **Settings → Features → Skills**. Pulsa el botón para
-   añadir una skill nueva y sube `pensamiento-critico.zip` desde el escritorio.
-3. Activa el toggle de la skill y asegúrate de que **Code execution** esté
-   habilitado en la misma sección de Features.
+2. En claude.ai, abre **Configuración → Personalizar** (igual ruta en la app
+   de Mac, en la web y en móvil). En versiones recientes la antigua sección
+   "Skills" de Configuración se trasladó a **Personalizar**, donde se
+   gestionan habilidades y conectores en una sola página. Pulsa el botón
+   para añadir una habilidad nueva y sube `pensamiento-critico.zip` desde
+   el escritorio.
+3. Activa el toggle de la habilidad. Asegúrate además de que **Ejecución
+   de código** esté habilitada en Configuración (puede aparecer dentro de
+   Personalizar o en una pestaña adyacente según versión).
 4. Verifica que carga: en una conversación nueva, pega cualquier texto
    argumentativo corto y pide *"analízalo con pensamiento crítico"*. Si ves un
    reporte estructurado con los 8 elementos, está funcionando.
