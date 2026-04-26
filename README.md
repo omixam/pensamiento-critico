@@ -1,5 +1,7 @@
 # pensamiento-critico
 
+> Skill de Claude · Plugin marketplace de Claude Code: `omixam` · Licencia MIT
+
 Skill para Claude que analiza textos argumentativos aplicando el marco de
 los **8 elementos del pensamiento** y los **estándares intelectuales universales**
 de Richard Paul y Linda Elder, junto con la **detección de falacias lógicas**
@@ -10,10 +12,15 @@ por ti mismo.
 
 ## Para quién es
 
-Cualquier persona que use Claude y quiera leer con más rigor textos
-argumentativos: artículos de opinión, ensayos, posts de redes, columnas,
-discursos, comunicados, ponencias. Funciona también con PDFs (los convierte a
-texto antes de analizar) y con imágenes (las transcribe primero).
+Está pensada sobre todo para gente que **escribe o lee opinión con cierta
+exigencia**: redactores de newsletters y blogs, profesores que enseñan
+argumentación, periodistas que contrastan, alumnos preparando ensayos,
+lectores que quieren entender mejor qué les están vendiendo. Pero
+funciona para cualquiera que tenga delante un texto argumentativo y
+quiera leerlo con más rigor.
+
+Acepta artículos de opinión, ensayos, posts de redes, columnas, discursos,
+comunicados, ponencias.
 
 ## Qué hace
 
@@ -34,9 +41,7 @@ Cuando le pasas un texto, la skill produce un reporte estructurado con:
 - **Limitaciones del análisis** — incluida la **declaración explícita de
   no-neutralidad** del propio analizador (ver más abajo).
 
-El tono es **conversacional y didáctico**, no forense. El reporte se ajusta a la
-longitud y tipo de texto: un post breve no recibe el mismo despliegue que un
-ensayo largo.
+El tono es **conversacional y didáctico**, no forense.
 
 ## Filosofía
 
@@ -59,7 +64,11 @@ personalizadas, con un mecanismo de instalación distinto en cada una. Las
 skills **no se sincronizan entre superficies**: si quieres usarla en claude.ai
 y en Claude Code, hay que instalarla en cada una por separado.
 
-### En Claude Code (recomendado: como plugin)
+### En Claude Code
+
+Tres formas, en orden de comodidad:
+
+#### 1. Como plugin del marketplace omixam (recomendado)
 
 Este repo está empaquetado como **plugin marketplace** de Claude Code. La
 forma más cómoda de instalar la skill son dos comandos, **uno por uno** —
@@ -85,13 +94,24 @@ del siguiente.
    en una conversación nueva, pega un texto argumentativo y pide
    *"analízalo con pensamiento crítico"*.
 
-Si prefieres instalación manual sin pasar por el marketplace, clona el repo y
-copia solo la carpeta de la skill a tu directorio de skills:
+#### 2. Como skill de proyecto del repo (web y móvil)
+
+El repo incluye `.claude/skills/pensamiento-critico/` con symlinks al
+`SKILL.md` y a las carpetas de referencia. Esto permite que, al abrir el
+repo directamente como directorio de trabajo en Claude Code (típicamente
+en la web o desde el móvil, donde no hay `~/.claude/skills/` propio), la
+skill se cargue automáticamente como skill de proyecto sin necesidad de
+instalarla aparte.
+
+#### 3. Instalación manual
+
+Si prefieres instalación manual sin pasar por el marketplace, clona el repo
+y copia solo la carpeta de la skill a tu directorio de skills:
 
 ```bash
-git clone https://github.com/omixam/pensamiento-critico.git /tmp/omixam-pc
+git clone https://github.com/omixam/pensamiento-critico.git /tmp/pensamiento-critico-source
 mkdir -p ~/.claude/skills/
-cp -R /tmp/omixam-pc/skills/pensamiento-critico ~/.claude/skills/
+cp -R /tmp/pensamiento-critico-source/skills/pensamiento-critico ~/.claude/skills/
 ```
 
 ### En claude.ai (web, desktop, móvil)
@@ -106,13 +126,15 @@ así que cada miembro de un equipo tiene que subirla por separado en su cuenta.
    `SKILL.md`):
 
    ```bash
-   git clone https://github.com/omixam/pensamiento-critico.git
-   cd pensamiento-critico/skills
-   zip -r pensamiento-critico.zip pensamiento-critico
+   git clone https://github.com/omixam/pensamiento-critico.git /tmp/pensamiento-critico-source
+   cd /tmp/pensamiento-critico-source/skills
+   zip -r ~/Desktop/pensamiento-critico.zip pensamiento-critico
    ```
 
+   El ZIP queda en tu escritorio para que lo encuentres fácil al subirlo.
+
 2. En claude.ai, ve a **Settings → Features → Skills**. Pulsa el botón para
-   añadir una skill nueva y sube `pensamiento-critico.zip`.
+   añadir una skill nueva y sube `pensamiento-critico.zip` desde el escritorio.
 3. Activa el toggle de la skill y asegúrate de que **Code execution** esté
    habilitado en la misma sección de Features.
 4. Verifica que carga: en una conversación nueva, pega cualquier texto
@@ -126,17 +148,51 @@ al endpoint `/v1/skills` con el contenido de `skills/pensamiento-critico/`.
 Si vas a integrarla en una aplicación propia, consulta la [guía oficial de
 skills en la API](https://platform.claude.com/docs/en/build-with-claude/skills-guide).
 
-### Uso como skill de proyecto (Claude Code en web/móvil)
+## Quick start
 
-El repo incluye también `.claude/skills/pensamiento-critico/` con symlinks al
-`SKILL.md` y a las carpetas de referencia. Esto permite que, al abrir el repo
-directamente como directorio de trabajo en Claude Code (típicamente en la web
-o desde el móvil, donde no hay `~/.claude/skills/` propio), la skill se cargue
-automáticamente como skill de proyecto sin necesidad de instalarla aparte.
+Una vez instalada, abre una conversación y pega un texto argumentativo
+con la frase *"analízalo con pensamiento crítico"*. Como mini-prueba:
+
+> Hay que prohibir el patinete eléctrico en las ciudades. Cada año mueren
+> más peatones por culpa de patinetes que por coches en los nuevos carriles
+> bici. Si los políticos no actúan ya, es porque viven de las subvenciones
+> de Xiaomi y compañía. Cualquier persona razonable lo ve: o se prohíben
+> o seguirán las muertes.
+
+La skill responderá con un reporte estructurado. Resumen del que produce
+con este texto:
+
+<details>
+<summary>Ver reporte abreviado</summary>
+
+**Síntesis:** el autor defiende la prohibición de patinetes eléctricos
+basándose en (1) datos de mortalidad y (2) sospecha de corrupción política.
+
+**Falacias detectadas:**
+- *Falsa dicotomía* — "o se prohíben o seguirán las muertes" (omite
+  alternativas: regulación, carriles segregados, formación obligatoria).
+- *Ad hominem circumstancial* — atribuir la inacción política a corrupción
+  ("viven de las subvenciones") sin evidencia, sustituye argumento por
+  acusación.
+- *Apelación a la opinión popular* — "cualquier persona razonable lo ve"
+  desplaza la carga de la prueba al lector.
+
+**Información cuestionable:** la afirmación "mueren más peatones por
+patinetes que por coches" no se sostiene con cifras públicas; el autor
+no cita fuente.
+
+*[el reporte completo continúa con los 8 elementos, sesgos, test de
+simetría ideológica y limitaciones]*
+
+</details>
+
+Para ejemplos completos de reportes en distintos registros (editorial
+forense, ensayo constructivo, post breve), ver
+[ejemplos de reportes](skills/pensamiento-critico/references/ejemplos-reportes.md).
 
 ## Cómo usarla
 
-Tres formas habituales:
+**Cómo invocarla** — cuatro modos de pasarle el texto:
 
 - **Pegando texto en el chat.** *"Analiza esto con pensamiento crítico: [texto]"*.
 - **Adjuntando un archivo.** Funciona con `.md`, `.txt` y `.pdf` (convierte el
@@ -148,12 +204,15 @@ Tres formas habituales:
   diapositiva. La skill transcribe primero y avisa en el reporte de que el
   análisis se hace sobre transcripción propia.
 
-Algunos prompts útiles:
+**Prompts útiles:**
 
 - *"¿Qué problemas tiene este argumento?"*
 - *"¿Es sólido este razonamiento?"*
 - *"Detecta falacias y sesgos en este texto."*
 - *"Hazlo en versión breve, dos párrafos."* — la skill ajusta la profundidad.
+
+El reporte se ajusta a la longitud y tipo de texto: un post breve no recibe
+el mismo despliegue que un ensayo largo.
 
 ## Limitaciones honestas
 
@@ -166,8 +225,8 @@ Algunos prompts útiles:
   consenso del modelo, más laxa cuando lo confirma. La skill lo declara en el
   reporte, pero no lo elimina.
 - **El catálogo de falacias es curado, no exhaustivo.** Cubre las que más
-  aparecen en debate público. Para casos difíciles, ver
-  [`skills/pensamiento-critico/doc/falacias-bibliografia.md`](skills/pensamiento-critico/doc/falacias-bibliografia.md).
+  aparecen en debate público. Para casos difíciles, ver la
+  [bibliografía completa con citas](skills/pensamiento-critico/doc/falacias-bibliografia.md).
 - **No verifica datos automáticamente.** Si el texto cita una fuente, la skill
   intenta leerla (vía WebFetch) y contrastar; si no puede, lo dice. No reemplaza
   un *fact-check* riguroso.
@@ -190,8 +249,7 @@ El marco teórico viene de:
 - **Douglas Walton** — *Informal Logic: A Pragmatic Approach* (Cambridge UP, 2008).
 - **Charles Hamblin** — *Fallacies* (Methuen, 1970).
 
-Bibliografía completa con citas en
-[`skills/pensamiento-critico/doc/falacias-bibliografia.md`](skills/pensamiento-critico/doc/falacias-bibliografia.md).
+Ver la [bibliografía completa con citas](skills/pensamiento-critico/doc/falacias-bibliografia.md).
 
 ## Licencia
 
@@ -205,11 +263,11 @@ Issues y PRs bienvenidos. Lo más útil:
 
 - **Casos donde la skill falla**: textos en los que produce un análisis pobre,
   forzado o tendencioso. Pega el texto y describe qué esperabas. Esos casos son
-  oro para mejorar los catálogos en `skills/pensamiento-critico/references/`.
-- **Falacias mal etiquetadas o ausentes** en
-  [`references/falacias-graves.md`](skills/pensamiento-critico/references/falacias-graves.md).
-- **Sesgos cognitivos** relevantes que falten en
-  [`references/sesgos-cognitivos.md`](skills/pensamiento-critico/references/sesgos-cognitivos.md).
+  oro para mejorar los catálogos de `references/`.
+- **Falacias mal etiquetadas o ausentes** en el
+  [catálogo de falacias](skills/pensamiento-critico/references/falacias-graves.md).
+- **Sesgos cognitivos** relevantes que falten en el
+  [catálogo de sesgos cognitivos](skills/pensamiento-critico/references/sesgos-cognitivos.md).
 - **Mejoras al test de simetría ideológica** o a la sección de no-neutralidad,
   desde cualquier perspectiva política — el objetivo es que la skill sea más
   honesta sobre su no-neutralidad, no que sea menos.
