@@ -62,16 +62,28 @@ y en Claude Code, hay que instalarla en cada una por separado.
 ### En Claude Code (recomendado: como plugin)
 
 Este repo está empaquetado como **plugin marketplace** de Claude Code. La
-forma más cómoda de instalar la skill es:
+forma más cómoda de instalar la skill son dos comandos, **uno por uno** —
+pégalos por separado en Claude Code, esperando la salida de cada uno antes
+del siguiente.
 
-```
-/plugin marketplace add omixam/pensamiento-critico
-/plugin install pensamiento-critico@omixam
-```
+1. Añade el marketplace:
 
-Reinicia Claude Code (o recarga skills, según tu versión) y verifica: en una
-conversación nueva, pega un texto argumentativo y pide *"analízalo con
-pensamiento crítico"*.
+   ```
+   /plugin marketplace add omixam/pensamiento-critico
+   ```
+
+   (Si la CLI te pide URL y el shorthand falla, usa la URL completa:
+   `https://github.com/omixam/pensamiento-critico.git`.)
+
+2. Instala el plugin:
+
+   ```
+   /plugin install pensamiento-critico@omixam
+   ```
+
+3. Reinicia Claude Code (o recarga skills, según tu versión) y verifica:
+   en una conversación nueva, pega un texto argumentativo y pide
+   *"analízalo con pensamiento crítico"*.
 
 Si prefieres instalación manual sin pasar por el marketplace, clona el repo y
 copia solo la carpeta de la skill a tu directorio de skills:
