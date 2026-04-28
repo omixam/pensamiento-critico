@@ -116,8 +116,8 @@ cp -R /tmp/pensamiento-critico-source/skills/pensamiento-critico ~/.claude/skill
 
 ### En claude.ai (web, desktop, móvil)
 
-Disponible en planes **Pro, Max, Team y Enterprise**, con la ejecución de
-código activada. (No está disponible en Free.) Las skills personales son
+Disponible en todos los planes de claude.ai (Free, Pro, Max, Team y
+Enterprise), con la ejecución de código activada. Las skills personales son
 **individuales a cada usuario**: claude.ai no tiene distribución org-wide,
 así que cada miembro de un equipo tiene que subirla por separado en su cuenta.
 
