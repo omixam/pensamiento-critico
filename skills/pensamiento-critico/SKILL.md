@@ -62,6 +62,8 @@ Esto cambia a menudo el análisis: un tuit que parece sólido puede estar reinte
 - Si menciona un archivo, léelo con la tool Read.
 - Si el texto es muy corto (menos de ~3 frases) o claramente no es argumentativo (una receta, una lista de compras), dilo con amabilidad y pregunta qué quería analizar exactamente antes de forzar un análisis.
 
+**Chequeo de enlaces-fuente — obligatorio antes de analizar.** Una vez tengas el texto, escanéalo en busca de enlaces que el autor use **como evidencia o respaldo de sus afirmaciones** (estudios citados, datos atribuidos a una fuente, artículos referenciados como prueba, tuits que enlazan al análisis original que resumen) y léelos con WebFetch antes de empezar el análisis. Aplica el procedimiento de la sección de enlaces-fuente de arriba: contrasta lo que la fuente dice con lo que el texto afirma que dice, y declara en "Limitaciones" cualquier enlace que no hayas podido abrir. **Ignora enlaces decorativos**: bio del autor, perfiles de redes sociales, "leer también", publicidad, footers, sidebars, navegación interna. Este paso aplica también cuando el propio input del usuario es una URL — primero lees el artículo, luego escaneas sus enlaces internos según esta misma regla.
+
 **Chequeo de idoneidad — antes de empezar, pregúntate si la skill encaja.** Esta skill está diseñada para textos que **defienden una tesis, argumentan una posición, persuaden o interpretan**: editoriales, ensayos, opiniones, discursos, posts argumentativos, análisis. Algunos textos quedan fuera o solo encajan parcialmente:
 
 | Tipo de texto | ¿Encaja la skill? |
