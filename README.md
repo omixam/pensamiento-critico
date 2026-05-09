@@ -153,6 +153,50 @@ al endpoint `/v1/skills` con el contenido de `skills/pensamiento-critico/`.
 Si vas a integrarla en una aplicación propia, consulta la [guía oficial de
 skills en la API](https://platform.claude.com/docs/en/build-with-claude/skills-guide).
 
+### En Cursor
+
+Cursor no carga el formato de skills de Anthropic, pero tiene un mecanismo
+equivalente: las **Project Rules** en `.cursor/rules/`. Este repo incluye una
+versión portada en `.cursor/rules/pensamiento-critico/`, que se activa en modo
+*Agent Requested* — el agente de Cursor decide cargarla cuando detecta que la
+petición encaja con su descripción.
+
+Las Project Rules son **por proyecto**: cópiala en cada repo donde la quieras
+usar.
+
+1. Clona el repo a una ruta temporal:
+
+   ```bash
+   git clone https://github.com/omixam/pensamiento-critico.git /tmp/pensamiento-critico-source
+   ```
+
+2. Copia la carpeta de la regla a tu proyecto Cursor:
+
+   ```bash
+   mkdir -p /ruta/a/tu/proyecto/.cursor/rules
+   cp -R /tmp/pensamiento-critico-source/.cursor/rules/pensamiento-critico /ruta/a/tu/proyecto/.cursor/rules/
+   ```
+
+3. Verifica: abre el proyecto en Cursor, abre el chat del agente, pega un texto
+   argumentativo y pide *"analízalo con pensamiento crítico"*. Si ves el
+   reporte estructurado con los 8 elementos, está activa. (Opcional: en
+   *Settings → Cursor → Rules* la verás listada como Project Rule en modo
+   *Agent Requested*.)
+
+**Limitaciones específicas de Cursor:**
+
+- **Web/fuentes enlazadas.** Donde la skill de Claude usa WebFetch, la regla
+  de Cursor usa la herramienta de búsqueda/navegación del agente. El
+  comportamiento es equivalente — y si la fuente no está accesible (paywall,
+  login, sin permisos de navegación), la regla manda declararlo en
+  *Limitaciones*, igual que en Claude.
+- **PDFs.** Convertir un PDF requiere `markitdown` instalado en el sistema y
+  permisos de terminal habilitados para el agente. Si no tienes ambas cosas,
+  pídele al usuario que pegue el texto directamente.
+- **No se sincroniza entre proyectos.** Igual que en claude.ai entre cuentas:
+  si la quieres en cinco proyectos Cursor, hay cinco copias de la carpeta. Es
+  el modelo de distribución de Project Rules; no es un fallo de la regla.
+
 ## Quick start
 
 Una vez instalada, abre una conversación y pega un texto argumentativo
