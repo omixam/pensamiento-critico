@@ -153,16 +153,17 @@ al endpoint `/v1/skills` con el contenido de `skills/pensamiento-critico/`.
 Si vas a integrarla en una aplicación propia, consulta la [guía oficial de
 skills en la API](https://platform.claude.com/docs/en/build-with-claude/skills-guide).
 
-### En Cursor
+### En Cursor (y otros agentes compatibles con `SKILL.md`)
 
-Cursor no carga el formato de skills de Anthropic, pero tiene un mecanismo
-equivalente: las **Project Rules** en `.cursor/rules/`. Este repo incluye una
-versión portada en `.cursor/rules/pensamiento-critico/`, que se activa en modo
-*Agent Requested* — el agente de Cursor decide cargarla cuando detecta que la
-petición encaja con su descripción.
+Cursor carga skills en el mismo formato `SKILL.md` que Claude, así que usa
+**exactamente la misma carpeta**, sin adaptaciones. El agente solo ve el
+nombre y la descripción de la skill al empezar, y la carga entera cuando la
+petición encaja (o cuando la invocas con `/pensamiento-critico`).
 
-Las Project Rules son **por proyecto**: cópiala en cada repo donde la quieras
-usar.
+**Si abres este repo en Cursor**, la skill ya está disponible: el repo incluye
+`.cursor/skills/pensamiento-critico/` con symlinks a `skills/pensamiento-critico/`.
+
+**Para usarla en tus propios proyectos**, copia la carpeta de la skill:
 
 1. Clona el repo a una ruta temporal:
 
@@ -170,32 +171,33 @@ usar.
    git clone https://github.com/omixam/pensamiento-critico.git /tmp/pensamiento-critico-source
    ```
 
-2. Copia la carpeta de la regla a tu proyecto Cursor:
+2. Cópiala a tu proyecto (o a tu directorio de skills de usuario, si quieres
+   tenerla en todos):
 
    ```bash
-   mkdir -p /ruta/a/tu/proyecto/.cursor/rules
-   cp -R /tmp/pensamiento-critico-source/.cursor/rules/pensamiento-critico /ruta/a/tu/proyecto/.cursor/rules/
+   mkdir -p /ruta/a/tu/proyecto/.cursor/skills
+   cp -R /tmp/pensamiento-critico-source/skills/pensamiento-critico /ruta/a/tu/proyecto/.cursor/skills/
    ```
 
 3. Verifica: abre el proyecto en Cursor, abre el chat del agente, pega un texto
    argumentativo y pide *"analízalo con pensamiento crítico"*. Si ves el
-   reporte estructurado con los 8 elementos, está activa. (Opcional: en
-   *Settings → Cursor → Rules* la verás listada como Project Rule en modo
-   *Agent Requested*.)
+   reporte estructurado con los 8 elementos, está activa.
 
-**Limitaciones específicas de Cursor:**
+Otros agentes que adoptan el formato `SKILL.md` deberían poder cargar la misma
+carpeta; consulta en su documentación el directorio donde buscan skills.
 
-- **Web/fuentes enlazadas.** Donde la skill de Claude usa WebFetch, la regla
-  de Cursor usa la herramienta de búsqueda/navegación del agente. El
-  comportamiento es equivalente — y si la fuente no está accesible (paywall,
-  login, sin permisos de navegación), la regla manda declararlo en
-  *Limitaciones*, igual que en Claude.
-- **PDFs.** Convertir un PDF requiere `markitdown` instalado en el sistema y
-  permisos de terminal habilitados para el agente. Si no tienes ambas cosas,
-  pídele al usuario que pegue el texto directamente.
-- **No se sincroniza entre proyectos.** Igual que en claude.ai entre cuentas:
-  si la quieres en cinco proyectos Cursor, hay cinco copias de la carpeta. Es
-  el modelo de distribución de Project Rules; no es un fallo de la regla.
+**Requisitos del entorno**, en cualquier agente:
+
+- **Fuentes enlazadas.** La skill pide leer las fuentes que el texto cita como
+  evidencia con la herramienta de lectura web del agente. Si no hay acceso a la
+  web (o la fuente está tras paywall o login), lo declara en *Limitaciones*.
+- **PDFs.** Convertir un PDF requiere `markitdown` y acceso a terminal, o una
+  herramienta nativa de lectura de PDF. Si no hay ninguna, pega el texto.
+
+> Hasta la versión 1.0 el repo incluía una versión portada como Project Rule
+> (`.cursor/rules/`). Se ha retirado porque Cursor ya lee `SKILL.md` de forma
+> nativa y mantener dos copias provocaba desincronizaciones. Si usas una
+> versión de Cursor sin soporte de skills, actualízala.
 
 ## Quick start
 
@@ -218,9 +220,9 @@ con este texto:
 basándose en (1) datos de mortalidad y (2) sospecha de corrupción política.
 
 **Falacias detectadas:**
-- *Falsa dicotomía* — "o se prohíben o seguirán las muertes" (omite
+- *Falso dilema* — "o se prohíben o seguirán las muertes" (omite
   alternativas: regulación, carriles segregados, formación obligatoria).
-- *Ad hominem circumstancial* — atribuir la inacción política a corrupción
+- *Ad hominem circunstancial* — atribuir la inacción política a corrupción
   ("viven de las subvenciones") sin evidencia, sustituye argumento por
   acusación.
 - *Apelación a la opinión popular* — "cualquier persona razonable lo ve"
@@ -277,7 +279,7 @@ el mismo despliegue que un ensayo largo.
   aparecen en debate público. Para casos difíciles, ver la
   [bibliografía completa con citas](skills/pensamiento-critico/doc/falacias-bibliografia.md).
 - **No verifica datos automáticamente.** Si el texto cita una fuente, la skill
-  intenta leerla (vía WebFetch) y contrastar; si no puede, lo dice. No reemplaza
+  intenta leerla con la herramienta web del agente y contrastar; si no puede, lo dice. No reemplaza
   un *fact-check* riguroso.
 - **No funciona bien con todo tipo de texto.** Está hecha para textos que
   argumentan o persuaden. En narrativa, ficción, documentación técnica o noticia

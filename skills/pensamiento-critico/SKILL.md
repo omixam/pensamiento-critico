@@ -20,7 +20,7 @@ Esta skill no produce un análisis neutral. Lo produce un modelo de lenguaje ent
 - **Ante temas políticamente polarizados**, hay probabilidad razonable de que el modelo trate con menos rigor unas posiciones que otras. El test de simetría ideológica del Paso 3 es un contrapeso parcial, no una garantía.
 - **Asimetría de detección.** Cuando un texto coincide con la conclusión moral por defecto del modelo, las falacias se detectan con menos sensibilidad; cuando la contradice, se detectan más rápido. Asume esto como condición de partida.
 
-**Implicación práctica:** esta skill ayuda al usuario a **pensar mejor un texto**, no le entrega un veredicto neutral sobre él. Es una segunda lectura estructurada, no un árbitro imparcial. Usarla en Claude no constituye prueba de objetividad — el modelo también está "cargado".
+**Implicación práctica:** esta skill ayuda al usuario a **pensar mejor un texto**, no le entrega un veredicto neutral sobre él. Es una segunda lectura estructurada, no un árbitro imparcial. Usarla en Claude, o en cualquier otro modelo, no constituye prueba de objetividad — el modelo también está "cargado".
 
 **Cómo se traduce esto en el reporte:** cuando el texto trate un tema moral o políticamente cargado, declara la no-neutralidad de forma **concreta** en la sección "Limitaciones" (qué inclinación tienes en ese tema, qué parte específica del análisis pudo suavizarse o endurecerse). No vale la fórmula genérica *"puedo tener sesgos"*. Sé específico sobre cuál y dónde.
 
@@ -33,13 +33,13 @@ Actívala cuando el usuario:
 - Comparta un artículo de opinión, post de redes, discurso político, ensayo, etc.
 - Pida ayuda para "pensar mejor" sobre algo que leyó
 
-Si el usuario menciona un archivo PDF, conviértelo primero a markdown con `markitdown archivo.pdf > archivo.md` antes de analizarlo.
+Si el usuario menciona un archivo PDF, conviértelo primero a markdown con `markitdown archivo.pdf > archivo.md` antes de analizarlo. Esto requiere `markitdown` instalado y acceso a terminal; si no los tienes, lee el PDF con la herramienta nativa del entorno si existe, o pídele al usuario que pegue el texto.
 
 **Si el texto llega como imagen** (foto de una página de periódico, captura de pantalla de un post largo, diapositiva, recorte de revista), transcríbelo con cuidado antes de analizar. Revisa la transcripción buscando cortes de columna mal unidos, palabras partidas por el salto de línea y signos que el OCR interno puede haber confundido. Al entregar el reporte, **avisa al usuario en la nota de "Limitaciones" de que trabajas sobre transcripción propia** — así, si hay un matiz fino que depende de una palabra concreta, el usuario puede revisarlo contra el original. No hace falta pegar la transcripción entera; basta con la advertencia.
 
 **Si el usuario comparte un enlace (X/Twitter, artículo tras paywall, red social que exige login, etc.) e intentas leerlo pero no puedes acceder al contenido:** dilo con claridad y pídele que pegue el texto. **Nunca inventes ni reconstruyas el contenido a partir del contexto del enlace o de memoria** — analizar un texto que no has leído es el peor error posible para esta skill. Una línea basta: *"No he podido acceder al contenido de ese enlace (X requiere autenticación / el artículo está tras paywall). ¿Puedes pegarme el texto directamente?"*
 
-**Si el texto cita o enlaza a una fuente como evidencia de sus afirmaciones, lee también esa fuente con WebFetch antes de analizar.** Aplicable cuando el enlace es la base de los datos ("según este estudio...", "el artículo muestra que...", un tuit que resume un análisis y enlaza al original). No aplica a enlaces decorativos o de cortesía (biografía del autor, perfil de redes, etc.).
+**Si el texto cita o enlaza a una fuente como evidencia de sus afirmaciones, lee también esa fuente con la herramienta de lectura web que tengas disponible antes de analizar.** Aplicable cuando el enlace es la base de los datos ("según este estudio...", "el artículo muestra que...", un tuit que resume un análisis y enlaza al original). No aplica a enlaces decorativos o de cortesía (biografía del autor, perfil de redes, etc.).
 
 Por qué importa: sin leer la fuente, estás evaluando solo cómo el autor **presenta** la evidencia, no si la presenta fielmente. Muchos errores argumentativos graves no están en el texto visible, sino en la distancia entre lo que la fuente dice y lo que el texto afirma que dice. Ejemplos típicos:
 - Cifras sacadas de contexto (un porcentaje sin denominador que la fuente sí explicita).
@@ -47,9 +47,9 @@ Por qué importa: sin leer la fuente, estás evaluando solo cómo el autor **pre
 - Selección de datos favorables ignorando los que la fuente incluye.
 
 **Cómo proceder:**
-1. Intenta leer la fuente con WebFetch.
+1. Intenta leer la fuente con la herramienta de lectura web disponible.
 2. Si funciona, úsala para contrastar: *"el tuit dice X, la fuente original dice X' — la diferencia importa / no importa porque..."*.
-3. Si el enlace falla (paywall, login, bloqueo), dilo en la sección "Limitaciones" del reporte y analiza solo lo visible, con la honestidad de señalar qué no has podido verificar.
+3. Si el enlace falla (paywall, login, bloqueo, o no tienes acceso a la web en este entorno), dilo en la sección "Limitaciones" del reporte y analiza solo lo visible, con la honestidad de señalar qué no has podido verificar.
 4. Si hay muchos enlaces, prioriza los que sostienen las afirmaciones centrales. No hace falta leer todo.
 
 Esto cambia a menudo el análisis: un tuit que parece sólido puede estar reinterpretando su fuente, y un tuit que parece flojo puede estar resumiendo fielmente algo impecable.
@@ -59,10 +59,10 @@ Esto cambia a menudo el análisis: un tuit que parece sólido puede estar reinte
 ### 1. Obtén el texto e identifica su tipo
 
 - Si el usuario lo pegó directamente, trabaja con eso.
-- Si menciona un archivo, léelo con la tool Read.
+- Si menciona un archivo, ábrelo desde el espacio de trabajo.
 - Si el texto es muy corto (menos de ~3 frases) o claramente no es argumentativo (una receta, una lista de compras), dilo con amabilidad y pregunta qué quería analizar exactamente antes de forzar un análisis.
 
-**Chequeo de enlaces-fuente — obligatorio antes de analizar.** Una vez tengas el texto, escanéalo en busca de enlaces que el autor use **como evidencia o respaldo de sus afirmaciones** (estudios citados, datos atribuidos a una fuente, artículos referenciados como prueba, tuits que enlazan al análisis original que resumen) y léelos con WebFetch antes de empezar el análisis. Aplica el procedimiento de la sección de enlaces-fuente de arriba: contrasta lo que la fuente dice con lo que el texto afirma que dice, y declara en "Limitaciones" cualquier enlace que no hayas podido abrir. **Ignora enlaces decorativos**: bio del autor, perfiles de redes sociales, "leer también", publicidad, footers, sidebars, navegación interna. Este paso aplica también cuando el propio input del usuario es una URL — primero lees el artículo, luego escaneas sus enlaces internos según esta misma regla.
+**Chequeo de enlaces-fuente — obligatorio antes de analizar.** Una vez tengas el texto, escanéalo en busca de enlaces que el autor use **como evidencia o respaldo de sus afirmaciones** (estudios citados, datos atribuidos a una fuente, artículos referenciados como prueba, tuits que enlazan al análisis original que resumen) y léelos antes de empezar el análisis. Aplica el procedimiento de la sección de enlaces-fuente de arriba: contrasta lo que la fuente dice con lo que el texto afirma que dice, y declara en "Limitaciones" cualquier enlace que no hayas podido abrir. **Ignora enlaces decorativos**: bio del autor, perfiles de redes sociales, "leer también", publicidad, footers, sidebars, navegación interna. Este paso aplica también cuando el propio input del usuario es una URL — primero lees el artículo, luego escaneas sus enlaces internos según esta misma regla.
 
 **Chequeo de idoneidad — antes de empezar, pregúntate si la skill encaja.** Esta skill está diseñada para textos que **defienden una tesis, argumentan una posición, persuaden o interpretan**: editoriales, ensayos, opiniones, discursos, posts argumentativos, análisis. Algunos textos quedan fuera o solo encajan parcialmente:
 
@@ -109,7 +109,7 @@ Antes de analizar, carga los archivos de referencia relevantes:
 - `references/elementos-estandares.md` — los 8 elementos y los 9 estándares intelectuales (**siempre**)
 - `references/falacias-graves.md` — catálogo curado de falacias a detectar (**siempre**)
 - `references/sesgos-cognitivos.md` — cuando algo "huele mal" pero no encaja en ninguna falacia, mira aquí
-- `references/ejemplos-reportes.md` — dos reportes modelo para calibrar tono y profundidad (**léelo la primera vez que uses la skill en una sesión**)
+- `references/ejemplos-reportes.md` — tres reportes modelo (editorial forense, ensayo constructivo, post breve) para calibrar tono y profundidad (**léelo la primera vez que uses la skill en una sesión**)
 
 No hace falta releerlos si ya los tienes presentes en esta conversación.
 
@@ -139,7 +139,7 @@ Antes de dar el reporte por listo, relee el borrador buscando **específicamente
 4. **Elementos nombrados, aunque sea en una línea.** Los 8 deben aparecer por nombre; si alguno se omitió, añádelo aunque sea con una frase honesta.
 5. **Contenido inventado.** Si no pudiste acceder a la fuente (enlace no leído), el reporte no existe — pide el texto, no lo reconstruyas.
 6. **Nota de idoneidad cuando aplique.** Si el texto es de un tipo al que la skill no encaja del todo (narrativa, curaduría, descriptivo), confirma que añadiste la nota previa. Sin ella, el usuario puede creer que el análisis forzado es normal.
-7. **Fuentes enlazadas leídas o declaradas no leídas.** Si el texto citaba un enlace como evidencia, confirma que lo abriste con WebFetch y contrastaste, o que en su defecto lo declaraste abiertamente en "Limitaciones". No hay un punto intermedio silencioso.
+7. **Fuentes enlazadas leídas o declaradas no leídas.** Si el texto citaba un enlace como evidencia, confirma que lo abriste y contrastaste, o que en su defecto lo declaraste abiertamente en "Limitaciones". No hay un punto intermedio silencioso.
 8. **Declaración de no-neutralidad cuando aplique.** Si el texto era moral o políticamente cargado, confirma que la sección "Limitaciones" incluye una mención **concreta** —no genérica— de la inclinación por defecto del modelo en ese tema y qué parte del análisis pudo verse afectada. Sin este paso, el reporte transmite una falsa imparcialidad que el usuario no tiene cómo detectar.
 
 Este paso no es opcional. Los fallos de esta skill casi nunca están en el análisis; están en descuidos de presentación que el auto-repaso caza.

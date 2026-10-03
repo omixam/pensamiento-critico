@@ -19,6 +19,7 @@ Catálogo curado de las falacias más comunes y graves en textos argumentativos 
 **Qué es:** Distorsionar o caricaturizar la posición del rival para poder refutarla más fácil.
 **Señales:** "Los que defienden X creen que [versión extrema/absurda]". El rival no ha dicho eso, o lo dijo con matices que se omiten.
 **Ejemplo:** "Los que piden regular las redes sociales quieren que el Estado lea tus mensajes privados."
+**Variante — el adversario imaginario (testaferro):** atribuir posiciones extremas a un "ellos" difuso que nadie concreto defiende ("hay quien quiere abolir la propiedad privada"), para demoler un enemigo que no existe y presentarse como razonable por contraste.
 **Por qué es grave:** Desplaza el debate real hacia un muñeco fácil de golpear.
 
 ### Ad hominem (ataque a la persona)
@@ -73,6 +74,12 @@ Catálogo curado de las falacias más comunes y graves en textos argumentativos 
 **Ejemplo:** "No me critiques por mentir, tu partido también mintió."
 **Por qué es grave:** Desvía del asunto y normaliza la falta.
 
+### "Y tú más" (whataboutism)
+**Qué es:** Responder a una crítica señalando una falta —real o supuesta— de otro actor, para cambiar de tema sin contestar a la crítica. A diferencia del *tu quoque*, no ataca la coherencia de quien critica, y a diferencia de "dos errores hacen un acierto", no siempre pretende justificar la falta: basta con desplazar la conversación.
+**Señales:** "¿Y qué me dices de…?", "¿Dónde estaban cuando…?", "Hablemos mejor de lo que hizo X". La crítica original queda sin respuesta.
+**Ejemplo:** Ante una denuncia de corrupción en un ayuntamiento: "¿Y la corrupción del partido de la oposición en la comunidad vecina?"
+**Por qué es grave:** Es la forma más habitual de no contestar en el debate político y en redes. Ojo: comparar casos **puede** ser legítimo cuando se discute si se aplica un estándar coherente; es falacia cuando sustituye a la respuesta.
+
 ---
 
 ## B. Falacias de claridad (el lenguaje como trampa)
@@ -86,6 +93,12 @@ Catálogo curado de las falacias más comunes y graves en textos argumentativos 
 **Qué es:** Usar términos tan amplios que nadie puede refutarlos, o que significan cosas distintas para distinta gente.
 **Ejemplo:** "Tenemos que proteger los valores." (¿cuáles? ¿de qué? ¿cómo?)
 **Por qué es grave:** Un término vago hace pasar por acuerdo lo que en realidad es confusión.
+
+### Castillo y foso (motte-and-bailey)
+**Qué es:** Defender una tesis fuerte y polémica (el "patio", fácil de ocupar pero difícil de defender) y, cuando se la cuestiona, replegarse a una versión débil y casi indiscutible (el "castillo"), para volver a la fuerte en cuanto pasa la crítica. El nombre viene de la fortificación medieval *motte-and-bailey*.
+**Señales:** La tesis cambia de tamaño según haya o no objeción. El texto alterna entre una afirmación ambiciosa y una trivial usando la misma palabra para las dos.
+**Ejemplo:** "La ciencia económica es pura ideología." Ante la objeción: "Bueno, solo digo que los economistas tienen valores, como todo el mundo." Y al día siguiente, de nuevo: "Como la economía es ideología, sus datos no valen."
+**Por qué es grave:** Consigue el efecto persuasivo de la tesis fuerte con la defensa barata de la débil. Se detecta preguntando: *¿cuál de las dos versiones defiende exactamente el texto?*
 
 ### Argumentar por insinuación (innuendo)
 **Qué es:** Sugerir una tesis fuerte sin afirmarla explícitamente, de modo que el lector "saque la conclusión" por sí mismo mientras el autor conserva la negabilidad ("yo no dije eso"). Es especialmente frecuente en redes sociales, titulares y comentarios políticos.
@@ -115,6 +128,12 @@ Catálogo curado de las falacias más comunes y graves en textos argumentativos 
 **Qué es:** Comparar dos cosas que se parecen en aspectos superficiales pero difieren en lo esencial para el argumento.
 **Ejemplo:** "Gestionar un país es como gestionar una empresa." (Salvo en todo lo que importa políticamente.)
 **Por qué es grave:** Hace parecer intuitiva una conclusión que no lo es.
+
+### Falsa equivalencia
+**Qué es:** Presentar dos cosas como equiparables (en gravedad, en evidencia, en legitimidad) porque comparten algún rasgo, ignorando diferencias de escala o de naturaleza que son decisivas.
+**Señales:** "Los dos lados son iguales", "es lo mismo que…", "tan culpable es uno como otro" — sin comparar magnitudes. También en el formato periodístico de "dos posturas" cuando una tiene un respaldo empírico abrumador y la otra no.
+**Ejemplo:** "Un político se saltó un semáforo y otro desvió fondos públicos: todos incumplen la ley, son lo mismo."
+**Por qué es grave:** Aplana diferencias que el lector necesita para juzgar. Es pariente de la falsa analogía (que compara para concluir algo nuevo) y del sesgo de punto medio (que asume la verdad en el centro), pero su efecto propio es igualar lo que no es igual.
 
 ### Pendiente resbaladiza
 **Qué es:** Afirmar que un paso llevará inevitablemente a una cadena de consecuencias catastróficas, sin justificar cada eslabón.
@@ -164,6 +183,12 @@ Catálogo curado de las falacias más comunes y graves en textos argumentativos 
 **Ejemplo:** "Mi predicción falló porque había fuerzas invisibles interfiriendo." (Inventar factores para no reconocer el error.)
 **Por qué es grave:** Convierte una tesis falsable en inmune a cualquier evidencia — deja de ser un argumento serio.
 
+### Ningún escocés verdadero (no true Scotsman)
+**Qué es:** Ante un contraejemplo a una generalización, redefinir el grupo sobre la marcha para excluirlo ("ese no es un *verdadero* X"). Es un caso particular de *ad hoc* aplicado a definiciones.
+**Señales:** "Ningún verdadero…", "un auténtico… nunca haría eso", "eso no es el *verdadero* [socialismo / liberalismo / feminismo / cristianismo]" — cuando el criterio de pertenencia aparece solo después del contraejemplo.
+**Ejemplo:** "Ningún ecologista apoya la energía nuclear." — "Pues X es ecologista y la apoya." — "Entonces no es un ecologista de verdad."
+**Por qué es grave:** Hace la generalización irrefutable por definición, y por eso vacía. La pregunta que lo desarma: *¿qué criterio de pertenencia tenías antes del contraejemplo?*
+
 ### Generalización desde el patrón selectivo
 **Qué es:** Construir un "patrón" enlazando hechos escogidos para demostrar la tesis, y luego usar ese patrón como marco explicativo que pre-interpreta cualquier nuevo hecho. Es una forma sutil de argumento circular: el patrón se construye a partir de los hechos, pero después se invoca como si fuera independiente de ellos.
 **Señales:** "Esto encaja en un patrón que viene de…", "Pese a su apariencia [arbitraria/aislada/casual], este caso sigue la lógica de…", "No es casualidad que…". El autor selecciona qué hechos entran en el patrón y descarta los que no encajan sin justificarlo.
@@ -175,8 +200,11 @@ Catálogo curado de las falacias más comunes y graves en textos argumentativos 
 **Ejemplo:** "Nadie ha demostrado que los fantasmas no existan, por tanto existen."
 **Por qué es grave:** La ausencia de refutación no es prueba.
 
-### Falacia del testaferro / del espantapájaros retórico
-Similar al hombre de paja, pero donde se atribuyen al adversario posiciones extremas que nadie defiende para demoler un "enemigo imaginario".
+### Inversión de la carga de la prueba
+**Qué es:** Hacer una afirmación y exigir a los demás que demuestren que es falsa, en lugar de aportar pruebas de que es verdadera. Quien afirma algo nuevo o extraordinario es quien debe sostenerlo.
+**Señales:** "Demuéstrame que no es así", "que expliquen ellos por qué no", "hasta que no se pruebe lo contrario…" — dicho por quien hace la afirmación positiva.
+**Ejemplo:** "Esta vacuna causa infertilidad. Si no es verdad, que lo demuestren las farmacéuticas."
+**Por qué es grave:** Se apoya en que probar una negativa es casi siempre más costoso que lanzar la afirmación. Va de la mano de la apelación a la ignorancia, pero es distinta: aquí el problema es *quién* debe probar, no qué se concluye de la falta de prueba.
 
 ---
 
@@ -184,9 +212,9 @@ Similar al hombre de paja, pero donde se atribuyen al adversario posiciones extr
 
 Al analizar un texto real, prioriza en este orden:
 
-1. **Falacias estructurales** (el argumento central descansa sobre ellas): hombre de paja, falso dilema, petitio principii, causa-efecto falsa, ad hoc.
-2. **Falacias que engañan más al lector medio:** ad populum, ad verecundiam, post hoc, falsa analogía, pendiente resbaladiza.
-3. **Falacias que señalan mala fe argumentativa:** ad hominem grave, ad baculum, envenenar el pozo.
+1. **Falacias estructurales** (el argumento central descansa sobre ellas): hombre de paja, falso dilema, petitio principii, causa-efecto falsa, ad hoc, castillo y foso, inversión de la carga de la prueba.
+2. **Falacias que engañan más al lector medio:** ad populum, ad verecundiam, post hoc, falsa analogía, falsa equivalencia, pendiente resbaladiza.
+3. **Falacias que señalan mala fe argumentativa:** ad hominem grave, ad baculum, envenenar el pozo, "y tú más", ningún escocés verdadero.
 4. Los deslices menores pueden mencionarse al final o no mencionarse si no afectan la tesis.
 
 **Regla de oro:** si dudas si algo es una falacia, probablemente es un argumento débil pero legítimo. Reserva "falacia" para lo que de verdad rompe la cadena lógica.

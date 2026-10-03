@@ -1,0 +1,29 @@
+name: Checks
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  consistency:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: marketplace.json es JSON válido
+        run: jq empty .claude-plugin/marketplace.json
+
+      - name: Symlinks de project skill (Claude Code y Cursor) resuelven
+        run: |
+          for d in .claude .cursor; do
+            for p in SKILL.md references doc; do
+              test -e "$d/skills/pensamiento-critico/$p" \
+                || { echo "::error::Symlink roto: $d/skills/pensamiento-critico/$p"; exit 1; }
+            done
+          done
+
+      - name: Descripción de la skill ≤ 1024 caracteres
+        run: |
+          len=$(sed -n 's/^description: //p' skills/pensamiento-critico/SKILL.md | head -1 | wc -m)
+          echo "Longitud: $len"
+          test "$len" -le 1024
