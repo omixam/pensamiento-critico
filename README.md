@@ -139,10 +139,10 @@ activarla o desactivarla).
 2. Comprueba que la **ejecución de código** está activada:
    - Free, Pro y Max: **Configuración → Capacidades**.
    - Team y Enterprise: lo controla el propietario en **Configuración de la
-     organización → Plugins y skills → Política**.
-3. En claude.ai, abre **Personalizar → Skills**, pulsa **+** →
-   **Crear skill** → **Subir una skill**, y sube `pensamiento-critico.zip`
-   desde el escritorio. Aparecerá en tu lista de skills; comprueba que su
+     organización → Plugins y habilidades → Política**.
+3. En claude.ai, abre **Personalizar → Habilidades**, pulsa **+** →
+   **Crear habilidad** → **Subir una habilidad**, y sube `pensamiento-critico.zip`
+   desde el escritorio. Aparecerá en tu lista de habilidades; comprueba que su
    interruptor está activado.
 4. Verifica que carga: en una conversación nueva, pega cualquier texto
    argumentativo corto y pide *"analízalo con pensamiento crítico"*. Si ves un
