@@ -117,9 +117,12 @@ cp -R /tmp/pensamiento-critico-source/skills/pensamiento-critico ~/.claude/skill
 ### En claude.ai (web, desktop, móvil)
 
 Disponible en todos los planes de claude.ai (Free, Pro, Max, Team y
-Enterprise), con la ejecución de código activada. Las skills personales son
-**individuales a cada usuario**: claude.ai no tiene distribución org-wide,
-así que cada miembro de un equipo tiene que subirla por separado en su cuenta.
+Enterprise), con la ejecución de código activada. Las skills que subes tú
+son **personales**: solo las ves en tu cuenta. En planes **Team y Enterprise**,
+los propietarios de la organización pueden además aprovisionarla para todos
+los miembros desde la configuración de la organización; así aparece
+automáticamente para todo el equipo (en solo lectura, cada usuario puede
+activarla o desactivarla).
 
 1. Clona el repo y comprime **solo la carpeta de la skill** (no el repo
    entero — claude.ai espera un ZIP cuya raíz sea la carpeta con el
@@ -133,15 +136,14 @@ así que cada miembro de un equipo tiene que subirla por separado en su cuenta.
 
    El ZIP queda en tu escritorio para que lo encuentres fácil al subirlo.
 
-2. En claude.ai, abre **Configuración → Personalizar** (igual ruta en la app
-   de Mac, en la web y en móvil). En versiones recientes la antigua sección
-   "Skills" de Configuración se trasladó a **Personalizar**, donde se
-   gestionan habilidades y conectores en una sola página. Pulsa el botón
-   para añadir una habilidad nueva y sube `pensamiento-critico.zip` desde
-   el escritorio.
-3. Activa el toggle de la habilidad. Asegúrate además de que **Ejecución
-   de código** esté habilitada en Configuración (puede aparecer dentro de
-   Personalizar o en una pestaña adyacente según versión).
+2. Comprueba que la **ejecución de código** está activada:
+   - Free, Pro y Max: **Configuración → Capacidades**.
+   - Team y Enterprise: lo controla el propietario en **Configuración de la
+     organización → Plugins y skills → Política**.
+3. En claude.ai, abre **Personalizar → Skills**, pulsa **+** →
+   **Crear skill** → **Subir una skill**, y sube `pensamiento-critico.zip`
+   desde el escritorio. Aparecerá en tu lista de skills; comprueba que su
+   interruptor está activado.
 4. Verifica que carga: en una conversación nueva, pega cualquier texto
    argumentativo corto y pide *"analízalo con pensamiento crítico"*. Si ves un
    reporte estructurado con los 8 elementos, está funcionando.
@@ -149,9 +151,10 @@ así que cada miembro de un equipo tiene que subirla por separado en su cuenta.
 ### En Claude API
 
 Las skills personalizadas también pueden usarse vía la Claude API subiéndolas
-al endpoint `/v1/skills` con el contenido de `skills/pensamiento-critico/`.
-Si vas a integrarla en una aplicación propia, consulta la [guía oficial de
-skills en la API](https://platform.claude.com/docs/en/build-with-claude/skills-guide).
+con `POST /v1/skills`, sea el mismo ZIP del paso anterior o los archivos de
+`skills/pensamiento-critico/` por separado (con `SKILL.md` en la raíz de la
+subida). Si vas a integrarla en una aplicación propia, consulta la guía
+oficial [Using Agent Skills with the API](https://platform.claude.com/docs/en/build-with-claude/skills-guide).
 
 ### En Cursor (y otros agentes compatibles con `SKILL.md`)
 
