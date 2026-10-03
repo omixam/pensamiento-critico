@@ -13,16 +13,13 @@ jobs:
       - name: marketplace.json es JSON válido
         run: jq empty .claude-plugin/marketplace.json
 
-      - name: Referencias de Cursor sincronizadas con la skill
+      - name: Symlinks de project skill (Claude Code y Cursor) resuelven
         run: |
-          diff -r skills/pensamiento-critico/references .cursor/rules/pensamiento-critico/references \
-            || { echo "::error::Las referencias de .cursor/rules/ difieren de skills/. Copia los cambios a ambas."; exit 1; }
-
-      - name: Symlinks de la project skill resuelven
-        run: |
-          for p in SKILL.md references doc; do
-            test -e ".claude/skills/pensamiento-critico/$p" \
-              || { echo "::error::Symlink roto: .claude/skills/pensamiento-critico/$p"; exit 1; }
+          for d in .claude .cursor; do
+            for p in SKILL.md references doc; do
+              test -e "$d/skills/pensamiento-critico/$p" \
+                || { echo "::error::Symlink roto: $d/skills/pensamiento-critico/$p"; exit 1; }
+            done
           done
 
       - name: Descripción de la skill ≤ 1024 caracteres
