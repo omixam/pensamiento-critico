@@ -109,7 +109,7 @@ Antes de analizar, carga los archivos de referencia relevantes:
 - `references/elementos-estandares.md` — los 8 elementos y los 9 estándares intelectuales (**siempre**)
 - `references/falacias-graves.md` — catálogo curado de falacias a detectar (**siempre**)
 - `references/sesgos-cognitivos.md` — cuando algo "huele mal" pero no encaja en ninguna falacia, mira aquí
-- `references/ejemplos-reportes.md` — dos reportes modelo para calibrar tono y profundidad (**léelo la primera vez que uses la skill en una sesión**)
+- `references/ejemplos-reportes.md` — tres reportes modelo (editorial forense, ensayo constructivo, post breve) para calibrar tono y profundidad (**léelo la primera vez que uses la skill en una sesión**)
 
 No hace falta releerlos si ya los tienes presentes en esta conversación.
 

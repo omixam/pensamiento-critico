@@ -218,9 +218,9 @@ con este texto:
 basándose en (1) datos de mortalidad y (2) sospecha de corrupción política.
 
 **Falacias detectadas:**
-- *Falsa dicotomía* — "o se prohíben o seguirán las muertes" (omite
+- *Falso dilema* — "o se prohíben o seguirán las muertes" (omite
   alternativas: regulación, carriles segregados, formación obligatoria).
-- *Ad hominem circumstancial* — atribuir la inacción política a corrupción
+- *Ad hominem circunstancial* — atribuir la inacción política a corrupción
   ("viven de las subvenciones") sin evidencia, sustituye argumento por
   acusación.
 - *Apelación a la opinión popular* — "cualquier persona razonable lo ve"

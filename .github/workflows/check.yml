@@ -1,0 +1,32 @@
+name: Checks
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  consistency:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: marketplace.json es JSON válido
+        run: jq empty .claude-plugin/marketplace.json
+
+      - name: Referencias de Cursor sincronizadas con la skill
+        run: |
+          diff -r skills/pensamiento-critico/references .cursor/rules/pensamiento-critico/references \
+            || { echo "::error::Las referencias de .cursor/rules/ difieren de skills/. Copia los cambios a ambas."; exit 1; }
+
+      - name: Symlinks de la project skill resuelven
+        run: |
+          for p in SKILL.md references doc; do
+            test -e ".claude/skills/pensamiento-critico/$p" \
+              || { echo "::error::Symlink roto: .claude/skills/pensamiento-critico/$p"; exit 1; }
+          done
+
+      - name: Descripción de la skill ≤ 1024 caracteres
+        run: |
+          len=$(sed -n 's/^description: //p' skills/pensamiento-critico/SKILL.md | head -1 | wc -m)
+          echo "Longitud: $len"
+          test "$len" -le 1024

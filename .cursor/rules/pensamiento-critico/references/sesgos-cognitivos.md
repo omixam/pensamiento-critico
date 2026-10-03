@@ -108,7 +108,7 @@ Los sesgos son más difíciles de "acusar" que las falacias: no siempre se prueb
 
 ### Falacia del jugador (relevante también como sesgo)
 **Qué es:** Creer que los eventos independientes "se corrigen" entre sí ("lleva 5 veces cara, ahora toca cruz").
-**Ya está en el catálogo de falacias**, pero como sesgo aparece también en análisis económicos, deportivos o de tendencias.
+**Formalmente es una falacia de razonamiento probabilístico**, pero como sesgo aparece también en análisis económicos, deportivos o de tendencias.
 
 ### Ilusión de grupo pequeño
 **Qué es:** Sacar conclusiones generales de muestras pequeñas sin reconocer la variabilidad.
